@@ -1,0 +1,182 @@
+---
+layout: post
+title: HTML
+date: 2022-07-30
+categories: html
+---
+![image](https://user-images.githubusercontent.com/8829018/182998614-b78004f7-2c28-4af9-a7f5-c6e9edfa20c0.png)
+
+# Introduction
+
+- HTML : HyperText Markup Language is :
+    - A markup language for creating webpages and applications.
+    - The browser will perse HTML to render the content of a webpage.
+- Elements in HTML define the structure of the document and are indicated by tags
+    - The element consists of everything between the start of the opening tag and the end of the closing tag (i.e. any attributes, nested tags and elements, etc.)
+    - The tags for elements are surrounded by angle brackets
+    - The closing tag for an element starts with an angle bracket followed by a forward slash
+
+```html
+<div></div>
+```
+
+- Attributes are:-
+    - Defined `within` the opening tag of an element.
+    - Are key/value pairs that define the characteristics of the element by giving metadata that's important for the browser to know (e.g. element-specific styling, classes/ids, the URL for a hyperlink, etc.)
+        - The key is the name of the attribute being set and the value is enclosed in quotations
+        - Some HTML elements have their own unique attributes, but there are also global attributes that all elements can use such as `class` and `id`
+
+## The class Attribute
+
+- Classes group elements with common appearance as in same styling
+- Elements can have multiple classes separated by spaces in the value of the attribute
+
+## The id Attribute
+
+- `id` is assigned lto unique element for its own styling 
+- `id` should be unique to the element
+
+## Starting HTML Documents
+
+- HTML documents begin with a DOCTYPE declaration
+- For HTML5, the DOCTYPE declaration is:
+
+```html
+<!DOCTYPE html>
+```
+
+- Then the `<html>` follows.
+    -  HTML tag nests everything in the page.
+    - `<head>`
+    - `<body>` 
+
+### The `<head>` element
+
+- Contains metadata associated with the page
+    - `<title>` title for the page
+    - `<meta>` The:
+        - Name
+        - Author
+        - Description
+        - Keywords for the page
+    - `<link>` to the css
+    - `<script>` links to JavaScript internal or external
+    - `<base>` Base url for all hyperlinks in the document
+
+### The `<body>` Element
+
+- Includes the visible elements of the HTML page 
+    -  Inline or block-level elements
+        - Block elements have implicit newlines before and after, so they take the entire width of the page
+            - e.g., `<div>` and `<p>`
+        - Inline elements render within the line and only take the space they need
+            - e.g., `<span>`
+
+### Common HTML Elements
+
+[HTML Elements (w3Schools)](https://www.w3schools.com/tags/default.asp)
+
+- `<a>`
+    - Renders a clickable hyperlink in the page
+    - `href` attribute holds the URL 
+    - `target` attribute specifies how to open the link (e.g. in a new tab, current tab, etc.)
+- `<img>`
+    - Renders an image within the page
+    - `src` attribute that holds the relative path or URL to the image we want to display
+    - `alt` attribute holds alternative text that will display in the case that the image can't be shown (e.g. if it's been removed from the URL) and to assist screen readers for users with sight problems
+- `<table>`
+    - Renders a table in the page
+    - `<thead>` defines the table header
+    - `<tbody>` element that defines the table body
+    - `<tr>` elements that define table rows
+    - `<th>` elements to define a cell in the header row
+    - `<td>` elements to define a cell in a body row
+- `<ol>`
+    - Renders an ordered list 
+    - Numbered by default, but the delimiter can be changed by setting the `type` attribute
+- `<ul>`
+    - Renders an unordered list
+- `<li>`
+    - renders list items within an ordered or unordered list
+- `<div>`
+    - block-level element that defines a division of our page
+- `<p>`
+    - block-level element that defines a paragraph
+- `<span>`
+    - inline element used for grouping text or elements
+- `<b>`
+    - Bold text
+- `<i>`
+    - Italicizes text
+- `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
+    - Header tags that are block-level elements
+    - `h1` Is the largest header to `h6` as the smallest header
+- `<br/>`
+    - Self-closing tag for line breaks
+- `<!-- -->`
+    - Holds comments
+
+## Semantic Markup
+
+- Some HTML tags have semantic meaning, which means that the element gives some information about the type of content it contains
+- `<h1>` is a semantic element, the browser interprets this element as the most important header on our webpage
+- Semantic markup is used for search engine optimization because we can indicate the most important parts of our page and for screen readers because semantic elements better indicate the content that they contain
+- other semantic elements include `<header>`, `<nav>`, `<section>`, `<article>`, `<aside>`, `<footer>`
+
+## Forms
+
+- Forms are sections of our HTML documents that contain controls that solicit information from users and submit to the server.
+- `<form>` element creates forms in the page.
+    - within the form element:
+        - `<input>` elements for user input
+        - `type` attribute of the `<input>` element indicates what type of information is collected
+        - `type` can be one of many values, including: 
+            - text, single-line textbox input
+            - password, masks the entered characters
+            - radio, user can select from
+            - checkbox, checkbox that the user can select
+            - file, upload a file
+            - submit, or reset
+        - Along with input goes the `<label>` element before it to give a label to the input
+            - `for` attribute of the `<label>` element indicates the `id` of the `<input>` element that it's associated with
+        - `<textarea>` element can be included to render multiline textbox that can contain newlines.
+            - `rows` and `cols` attributes specify the size and determine the number of rows and the number of columns for the textarea, respectively.
+        - `<select>` element can be used to create drop downs
+            - Inside the select element: 
+                - `<option>` elements for different options.
+                    - `value` attribute for each option.
+        - `reset` to add reset to the form. clears form data
+        - `submit` to add submit buttons to the form. sends to server
+
+        - `action` to specifies where the form goes after submit.
+            - Typically, the value that we'll pass to this attribute will be the URL of the server that will receive the form submission.
+        - `target` attribute on the form element specifies how the result of the submission will be displayed to the user
+            -  new tab, same tab, etc.
+            - Specify the `name` for the different input elements within our form
+            - oftentimes this will match the `for` attribute of the corresponding `<label>`
+            - we'll use the name if we're retrieving our elements, e.g. in JavaScript
+            - The `value` attribute can be given to an `<input>` element to specify a default value for the input field
+            - When working with a `submit` or `reset` `<input>` element, `value` will hold the label of the button
+        - `placeholder` attribute can be given to an `<input>` element to give information about what we're expecting in the input
+            - Placeholders can be used for text, password, and other input types
+        - `required` attribute which requires a user to provide a value for an input field before submitting the form
+            - `required` attribute is a Boolean attribute (meaning that it can have a true or false value)
+            - for Boolean HTML attributes, we can explicitly specify a true or false value or simply include the attribute without a value (meaning true) or exclude the attribute (meaning false)
+        - The `min` and `max` attributes which hold a minimum and maximum value, respectively for the input
+            - used for number, range, date, datetime-local, month, time, and week inputs
+
+## HTML Form Validation
+
+- Whenever a user submits a form, the data will be sent to the location specified by the `action` attribute on the `<form>` element
+- however, the form will be validated before it's sent
+- This client-side validation comes in two forms 
+    - validation based on HTML5 rules 
+    - JavaScript validation using JavaScript that we've written
+- Validation based on HTML5 rules
+    - Any `required` `<input>` elements must have a value
+    - Any constraints imposed by `minlength` and `maxlength` attributes (which determine the minimum length and maximum length of an input value, respectively) must be observed
+    - Any constraints imposed by `min` and `max` attributes must be observed
+    - The value provided must match the `type` that we've specified for all `<input>` elements
+    - If we've defined a regular expression that the input value must match through the `pattern` attribute on an `<input>` element, that must be matched as well
+- If the form input provided by the user satisfies the validation, it will be submitted
+- If the form input is invalid, it won't be submitted until the user corrects the input and submits again
